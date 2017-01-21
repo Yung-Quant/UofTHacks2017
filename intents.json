@@ -1,0 +1,41 @@
+{
+    "intents": [
+        {
+            "intent":"GetHeadToHead",
+            "slots": [
+                {
+                    "name": "TeamA",
+                    "type": "TEAM"
+                },
+                {
+                    "name": "TeamB",
+                    "type": "TEAM"
+                }
+            ] 
+        }
+    ]
+}
+
+/*
+GetHeadToHead get the probability of the {TeamA} beating the {TeamB}
+GetHeadToHead get the probability of the {TeamA} winning against the {TeamB}
+GetHeadToHead get the probability of the {TeamA} defeating the {TeamB}
+GetHeadToHead get the probability of the {TeamA} crushing the {TeamB}
+GetHeadToHead get the probability of the {TeamB} losing to the {TeamA}
+GetHeadToHead get the probability of the {TeamB} being defeated by the {TeamA}
+GetHeadToHead get the probability of the {TeamB} being crushed by the {TeamA}
+GetHeadToHead what's the probability of the {TeamA} beating the {TeamB}
+GetHeadToHead what's the probability of the {TeamA} winning against the {TeamB}
+GetHeadToHead what's the probability of the {TeamA} defeating the {TeamB}
+GetHeadToHead what's the probability of the {TeamA} crushing the {TeamB}
+GetHeadToHead what's the probability of the {TeamB} losing to the {TeamA}
+GetHeadToHead what's the probability of the {TeamB} being defeated by the {TeamA}
+GetHeadToHead what's the probability of the {TeamB} being crushed by the {TeamA}
+GetHeadToHead what is the probability of the {TeamA} beating the {TeamB}
+GetHeadToHead what is the probability of the {TeamA} winning against the {TeamB}
+GetHeadToHead what is the probability of the {TeamA} defeating the {TeamB}
+GetHeadToHead what is the probability of the {TeamA} crushing the {TeamB}
+GetHeadToHead what is the probability of the {TeamB} losing to the {TeamA}
+GetHeadToHead what is the probability of the {TeamB} being defeated by the {TeamA}
+GetHeadToHead what is the probability of the {TeamB} being crushed by the {TeamA}
+*/
