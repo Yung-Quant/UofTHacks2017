@@ -7,8 +7,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 });
 
 var connector = new builder.ChatConnector({
-    appId: 'd2374428-8187-48f6-a248-a7d0d8b21aad',//process.env.MICROSOFT_APP_ID,
-    appPassword: 'U04vvCGsr1seaDrOm5U7Fvd'//process.env.MICROSOFT_APP_PASSWORD
+    appId: 'f26e7b53-b86d-4312-9dd7-d905196f74e9',//process.env.MICROSOFT_APP_ID,
+    appPassword: 'hZkfwj2LGxTmib5Gd4zO2wO'//process.env.MICROSOFT_APP_PASSWORD
 });
 
 var bot = new builder.UniversalBot(connector);
@@ -28,7 +28,7 @@ bot.dialog('loop', [
     function (session, results) {
         if (!session.userData.name) {
             session.userData.name = results.response;
-            builder.Prompts.text(session, "Hi " + name + ". What team are you rooting for?");
+            builder.Prompts.choice(session, "Hi " + name + ". What team are you rooting for?");
         } else {
             builder.Prompts.choice(session, "What team will you root for this time?", teams);
         }
@@ -41,26 +41,39 @@ bot.dialog('loop', [
     function (session, results) {
         session.send('Simulating ' + session.dialogData.firstChoice + ' vs. ' + results.response);
         //python call with session.dialogData.firstChoice and results.response
+        var team1 = "Manchester United"
+        var team2 = "Liverpool"
+        var spawn = require("child_process").spawn;
+        var process = spawn('python',["main.py", team1, team2]);
+
+        process.stdout.on('data', function (data){
+        // Do something with the data returned from python script
+        console.log(data.toString('utf8'));
+        });
     }
 ]);
 
 var teams = [
-    "KSV Cercle Brugge",
-    "Royal Excel Mouscron",
-    "Birmingham City",
-    "FC Nantes",
-    "SM Caen",
-    "Valenciennes FC",
-    "Stade de Reims",
-    "AC Arles-Avignon",
-    "Hannover 96",
-    "SC Freiburg",
-    "Portimonense",
-    "Manchester United",
+    "AFC Bournemouth",
+    "Arsenal FC",
+    "Aston Villa",
+    "Chelsea FC",
+    "Crystal Palace",
+    "Everton FC",
+    "Leicester City",
+   " Liverpool FC",
     "Manchester City",
-    "Liverpool",
+    "Manchester United",
+    "Newcastle United",
+    "Norwich City",
+    "Southampton FC",
+    "Stoke City",
+    "Sunderland AFC",
+    "Swansea City",
     "Tottenham Hotspur",
-    "Chelsea"
+    "Watford FC",
+    "West Bromwich Albion",
+    "West Ham United",
 ];
 
 function removeByValue(value, teams) {
