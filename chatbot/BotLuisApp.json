@@ -8,6 +8,9 @@
       "name": "BookFlight"
     },
     {
+      "name": "CalculateProbability"
+    },
+    {
       "name": "None"
     }
   ],
@@ -20,7 +23,18 @@
       ]
     },
     {
-      "name": "Team"
+      "name": "outcome",
+      "children": [
+        "Win",
+        "Lose"
+      ]
+    },
+    {
+      "name": "Team",
+      "children": [
+        "team1",
+        "team2"
+      ]
     }
   ],
   "composites": [],
@@ -36,17 +50,6 @@
       "text": "what is the weather like in london?",
       "intent": "None",
       "entities": []
-    },
-    {
-      "text": "please book me a flight to brazil",
-      "intent": "BookFlight",
-      "entities": [
-        {
-          "entity": "Location::ToLocation",
-          "startPos": 6,
-          "endPos": 6
-        }
-      ]
     },
     {
       "text": "lol",
@@ -67,6 +70,17 @@
       "text": "can you eat rocks?",
       "intent": "None",
       "entities": []
+    },
+    {
+      "text": "please book me a flight to brazil",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
     },
     {
       "text": "book a flight to london",
@@ -303,6 +317,92 @@
           "entity": "Location::FromLocation",
           "startPos": 6,
           "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "will chelsea win against liverpool?",
+      "intent": "CalculateProbability",
+      "entities": []
+    },
+    {
+      "text": "should i bet on liverpool tonight?",
+      "intent": "CalculateProbability",
+      "entities": [
+        {
+          "entity": "Team::team1",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "will man u win tonight?",
+      "intent": "CalculateProbability",
+      "entities": [
+        {
+          "entity": "Team::team1",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "will chelsea beat liverpool tonight?",
+      "intent": "CalculateProbability",
+      "entities": [
+        {
+          "entity": "Team::team1",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "Team::team2",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "what are the odds of swansea losing?",
+      "intent": "CalculateProbability",
+      "entities": [
+        {
+          "entity": "Team::team2",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "outcome::Lose",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "what are the odds of crystal palace winning?",
+      "intent": "CalculateProbability",
+      "entities": [
+        {
+          "entity": "Team::team1",
+          "startPos": 5,
+          "endPos": 6
+        },
+        {
+          "entity": "outcome::Win",
+          "startPos": 7,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "should i bet on manchester city?",
+      "intent": "CalculateProbability",
+      "entities": [
+        {
+          "entity": "Team::team1",
+          "startPos": 4,
+          "endPos": 5
         }
       ]
     }
