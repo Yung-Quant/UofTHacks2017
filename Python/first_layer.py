@@ -3,7 +3,7 @@ import numpy as np
 
 def getTeamID(team):
 	
-	with open('Team.csv') as csvfile:
+	with open('/home/gov/UofTHacks2017/Datasets/Team.csv') as csvfile:
 		
 		teamInfo = csv.reader(csvfile, delimiter=',')
 		count = 0
@@ -18,7 +18,7 @@ def getTeamHistory(idNums):
 	
 	team1 = idNums[0]
 	team2 = idNums[1]
-	with open('Match.csv') as csvfile:
+	with open('/home/gov/UofTHacks2017/Datasets/Match.csv') as csvfile:
 		matchCount = 0
 		history = []
 		matchData = csv.reader(csvfile, delimiter=',')
