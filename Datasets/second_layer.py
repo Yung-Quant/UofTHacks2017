@@ -92,10 +92,10 @@ def getIndirectMatchup(myHist, theirHist, myID, theirID):
     return [float(myDiff)/numMutGames, np.std(stdList)]
 
 
-myTeamID = getTeamID('Liverpool')
-theirTeamID = getTeamID('Manchester United')
-myTeamHistory = getTeamHistory(myTeamID)
-theirTeamHistory = getTeamHistory(theirTeamID)
-probability = getIndirectMatchup(myTeamHistory, theirTeamHistory, myTeamID, theirTeamID)
-
-print probability
+def secondLayerMain(team1, team2):
+    myTeamID = getTeamID(team1)
+    theirTeamID = getTeamID(team2)
+    myTeamHistory = getTeamHistory(myTeamID)
+    theirTeamHistory = getTeamHistory(theirTeamID)
+    probability = getIndirectMatchup(myTeamHistory, theirTeamHistory, myTeamID, theirTeamID)
+    return probability
