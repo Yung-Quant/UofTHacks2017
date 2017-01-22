@@ -44,11 +44,12 @@ def getPoints(history, id):
                 point += 1
     return point
 
-myTeamID = getTeamID('Liverpool')
-theirTeamID = getTeamID('Manchester United')
-myTeamHistory = getTeamHistory(myTeamID)
-theirTeamHistory = getTeamHistory(theirTeamID)
-myPoints = getPoints(myTeamHistory, myTeamID)
-theirPoints = getPoints(theirTeamHistory, theirTeamID)
-
-print (myPoints-theirPoints)/float(myPoints)
+def thirdLayerMain(team1, team2):
+    myTeamID = getTeamID(team1)
+    theirTeamID = getTeamID(team2)
+    myTeamHistory = getTeamHistory(myTeamID)
+    theirTeamHistory = getTeamHistory(theirTeamID)
+    myPoints = getPoints(myTeamHistory, myTeamID)
+    theirPoints = getPoints(theirTeamHistory, theirTeamID)
+    probabilityBoost = (myPoints-theirPoints)/float(myPoints)
+    return probabilityBoost
