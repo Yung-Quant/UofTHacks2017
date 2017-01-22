@@ -25,8 +25,8 @@ var bot = new builder.UniversalBot(connector, function (session) {
 });
 
 bot.dialog('loop', [
-    function (session, results) {
-        if (!session.userData.name) {
+    function (session, results) 
+{        if (!session.userData.name) {
             session.userData.name = results.response;
             builder.Prompts.choice(session, "Hi " + name + ". What team are you rooting for?");
         } else {
@@ -41,10 +41,8 @@ bot.dialog('loop', [
     function (session, results) {
         session.send('Simulating ' + session.dialogData.firstChoice + ' vs. ' + results.response);
         //python call with session.dialogData.firstChoice and results.response
-        var team1 = "Manchester United"
-        var team2 = "Liverpool"
         var spawn = require("child_process").spawn;
-        var process = spawn('python',["main.py", team1, team2]);
+        var process = spawn('python',["main.py", session.dialogData.firstChoice, results.response]);
 
         process.stdout.on('data', function (data){
         // Do something with the data returned from python script
