@@ -23,10 +23,9 @@ var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 bot.dialog('/', dialog);
 
-dialog.matches('BookFlight', builder.DialogAction.send('BookFlight')/*[
+dialog.matches('BookFlight', [
     function(session, args, next) {
-        ;
-        /*var location = builder.EntityRecognizer.findEntity(args.entities, 'Location');
+        var location = builder.EntityRecognizer.findEntity(args.entities, 'Location');
         if (!location) {
             builder.Prompts.text(session, "What would you like to call the task?");
         } else {
@@ -34,7 +33,7 @@ dialog.matches('BookFlight', builder.DialogAction.send('BookFlight')/*[
         }
     },
     function(session, results) {
-
+        
     }
-]*/);
+]);
 dialog.onDefault(builder.DialogAction.send("Default"));
