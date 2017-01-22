@@ -5,7 +5,10 @@
   "main": "app.js",
   "dependencies": {
     "botbuilder": "^3.5.3",
+<<<<<<< HEAD
     "claudia-bot-builder": "^2.12.0",
+=======
+>>>>>>> 51401739ca31dd3c8d636150b8c0263fbd0fe230
     "restify": "^4.3.0"
   },
   "devDependencies": {},
