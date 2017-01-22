@@ -1,34 +1,32 @@
 import csv
 import numpy as np
 
-def getTeamID(yourTeam, opponent):
+def getTeamID(team):
 	
 	with open('Team.csv') as csvfile:
 		
-		ids = []
 		teamInfo = csv.reader(csvfile, delimiter=',')
 		count = 0
 		for row in teamInfo:
-			if not(row[3].find(yourTeam, 0, len(row[3]))):
-				ids.append(row[1])
-				break
-		for row in teamInfo:
-			if not(row[3].find(opponent, 0, len(row[3]))):
-				ids.append(row[1])
-				break
-			
-				
+			if not(row[3].find(team, 0, len(row[3]))):
+				ids = row[1]
+				break	
 		csvfile.close()
 		return ids
 
 def getTeamHistory(idNums):
 	
+	team1 = idNums[0]
+	team2 = idNums[1]
 	with open('Match.csv') as csvfile:
 		matchCount = 0
 		history = []
 		matchData = csv.reader(csvfile, delimiter=',')
 		for row in matchData:
-			if (row[7] == idNums[0]  and row[8] == idNums[1]) or (row[7] == idNums[1] and row[8] == idNums[0]):
+			if (row[7] == team1  and row[8] == team2):
+				matchCount += 1
+				history.append(row[7:11])
+			if (row[7] == team2 and row[8] == team1):
 				matchCount += 1
 				history.append(row[7:11])
 			if matchCount == 6:
@@ -52,8 +50,9 @@ def getProbability(history, idNums):
 
 	return [float(winCount)/len(history), np.std(outcomes)]
 	
-						
-idNums = getTeamID('Manchester United', 'Liverpool')
+idNums = []						
+idNums.append(getTeamID('Manchester United'))
+idNums.append(getTeamID('Liverpool'))
 history = getTeamHistory(idNums)
 probability = getProbability(history, idNums)
 print(probability[0], probability[1])

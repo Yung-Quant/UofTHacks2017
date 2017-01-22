@@ -22,7 +22,7 @@ def getTeamHistory(idNum):
         matchData = csv.reader(csvfile, delimiter=',')
         for row in matchData:
             
-            if row[7] == idNum or row[8] == idNum[0]:
+            if row[7] == idNum or row[8] == idNum:
                 history.append(row[7:11])
                 matchCount += 1
             if matchCount == 72:
