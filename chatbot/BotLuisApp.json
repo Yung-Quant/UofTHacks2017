@@ -1,0 +1,310 @@
+{
+  "luis_schema_version": "1.3.0",
+  "name": "BotLuisApp",
+  "desc": "",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "BookFlight"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Location",
+      "children": [
+        "ToLocation",
+        "FromLocation"
+      ]
+    },
+    {
+      "name": "Team"
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "bing_entities": [
+    "datetime"
+  ],
+  "actions": [],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "what is the weather like in london?",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please book me a flight to brazil",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "lol",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i like cake",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "seven little dwarves",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can you eat rocks?",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "book a flight to london",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "book me a flight to london",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "please book me a flight to london",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "please book a flight to london",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "book a flight to paris",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "book me a flight to brockville",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "book me a flight from brockville",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "book me a flight from paris",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "book a flight from greece",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "book me a flight from iceland",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "book a flight from iran to bangkok",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "book me a flight from germany to france",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "book me a flight from brazil to london",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 7,
+          "endPos": 7
+        },
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "book a flight from spain to tripoli",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "book a flight to france from germany",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "book a flight from oshawa to rome",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 6,
+          "endPos": 6
+        },
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "book me a flight to rome from alexandria",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 7,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "book a flight to yemen from iceland",
+      "intent": "BookFlight",
+      "entities": [
+        {
+          "entity": "Location::ToLocation",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "Location::FromLocation",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    }
+  ]
+}
