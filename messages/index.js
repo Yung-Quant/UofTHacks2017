@@ -1,4 +1,4 @@
-var builder = require('claudia-bot-builder');
+var builder = require('botbuilder');
 var restify = require('restify');
 var server = restify.createServer();
 var spawn = require("child_process").spawn;
