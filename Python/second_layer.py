@@ -4,7 +4,7 @@ import numpy as np
 def getTeamID(team):
 
 	ids = []
-	with open('Team.csv') as csvfile:
+	with open('/home/gov/UofTHacks2017/Datasets/Team.csv') as csvfile:
 		teamInfo = csv.reader(csvfile, delimiter=',')
 		count = 0
 		for row in teamInfo:
@@ -16,7 +16,7 @@ def getTeamID(team):
 
 def getTeamHistory(idNum):
     
-    with open('Match.csv') as csvfile:
+    with open('/home/gov/UofTHacks2017/Datasets/Match.csv') as csvfile:
         matchCount = 0
         history = []
         matchData = csv.reader(csvfile, delimiter=',')
@@ -92,10 +92,10 @@ def getIndirectMatchup(myHist, theirHist, myID, theirID):
     return [float(myDiff)/numMutGames, np.std(stdList)]
 
 
-myTeamID = getTeamID('Liverpool')
-theirTeamID = getTeamID('Manchester United')
-myTeamHistory = getTeamHistory(myTeamID)
-theirTeamHistory = getTeamHistory(theirTeamID)
-probability = getIndirectMatchup(myTeamHistory, theirTeamHistory, myTeamID, theirTeamID)
-
-print probability
+def secondLayerMain(team1, team2):
+    myTeamID = getTeamID(team1)
+    theirTeamID = getTeamID(team2)
+    myTeamHistory = getTeamHistory(myTeamID)
+    theirTeamHistory = getTeamHistory(theirTeamID)
+    probability = getIndirectMatchup(myTeamHistory, theirTeamHistory, myTeamID, theirTeamID)
+    return probability

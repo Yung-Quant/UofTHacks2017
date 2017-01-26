@@ -3,7 +3,7 @@ import numpy as np
 
 def getTeamID(team):
 	
-	with open('/home/gov/UofTHacks2017/Datasets/Team.csv') as csvfile:
+	with open('Team.csv') as csvfile:
 		
 		teamInfo = csv.reader(csvfile, delimiter=',')
 		count = 0
@@ -18,7 +18,7 @@ def getTeamHistory(idNums):
 	
 	team1 = idNums[0]
 	team2 = idNums[1]
-	with open('/home/gov/UofTHacks2017/Datasets/Match.csv') as csvfile:
+	with open('Match.csv') as csvfile:
 		matchCount = 0
 		history = []
 		matchData = csv.reader(csvfile, delimiter=',')
@@ -45,14 +45,20 @@ def getProbability(history, idNums):
 		elif list[1] == idNums[0] and list[3] > list[2]:
 			winCount += 1
 			outcomes.append(1)
+		elif list[3] == list[2]:
+			winCount += 0.5
+			outcomes.append(0.5)
 		else:
 			outcomes.append(0)
 
 	return [float(winCount)/len(history), np.std(outcomes)]
-	
-idNums = []						
-idNums.append(getTeamID('Manchester United'))
-idNums.append(getTeamID('Liverpool'))
-history = getTeamHistory(idNums)
-probability = getProbability(history, idNums)
-print(probability[0], probability[1])
+
+
+def firstLayerMain(team1, team2):
+	idNums = []
+	idNums.append(getTeamID(team1))
+	idNums.append(getTeamID(team2))
+	history = getTeamHistory(idNums)
+	probability = getProbability(history, idNums)
+	return probability
+

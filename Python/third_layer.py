@@ -3,7 +3,7 @@ import numpy as np
 
 def getTeamID(team):
 
-    with open('Team.csv') as csvfile:
+    with open('/home/gov/UofTHacks2017/Datasets/Team.csv') as csvfile:
         ids = []
         teamInfo = csv.reader(csvfile, delimiter=',')
         count = 0
@@ -16,7 +16,7 @@ def getTeamID(team):
 
 def getTeamHistory(idNum):
 
-    with open('Match.csv') as csvfile:
+    with open('/home/gov/UofTHacks2017/Datasets/Match.csv') as csvfile:
         matchCount = 0
         history = []
         matchData = csv.reader(csvfile,delimiter=',')
@@ -44,11 +44,12 @@ def getPoints(history, id):
                 point += 1
     return point
 
-myTeamID = getTeamID('Liverpool')
-theirTeamID = getTeamID('Manchester United')
-myTeamHistory = getTeamHistory(myTeamID)
-theirTeamHistory = getTeamHistory(theirTeamID)
-myPoints = getPoints(myTeamHistory, myTeamID)
-theirPoints = getPoints(theirTeamHistory, theirTeamID)
-
-print (myPoints-theirPoints)/float(myPoints)
+def thirdLayerMain(team1, team2):
+    myTeamID = getTeamID(team1)
+    theirTeamID = getTeamID(team2)
+    myTeamHistory = getTeamHistory(myTeamID)
+    theirTeamHistory = getTeamHistory(theirTeamID)
+    myPoints = getPoints(myTeamHistory, myTeamID)
+    theirPoints = getPoints(theirTeamHistory, theirTeamID)
+    probabilityBoost = (myPoints-theirPoints)/float(myPoints)
+    return probabilityBoost
